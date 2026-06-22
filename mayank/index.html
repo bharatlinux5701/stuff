@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Farewell Mayank Wadhwa</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    overflow-y:auto;
+    overflow-x:hidden;
+    background:linear-gradient(-45deg,#667eea,#764ba2,#6a11cb,#2575fc);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+    min-height:100vh;
+    color:white;
+    padding:20px;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.start-screen{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.start-screen h1{
+    font-size:3rem;
+    margin-bottom:20px;
+    text-shadow:0 0 15px rgba(255,255,255,0.8);
+}
+
+.start-btn{
+    padding:18px 40px;
+    border:none;
+    border-radius:50px;
+    font-size:22px;
+    cursor:pointer;
+    background:white;
+    color:#764ba2;
+    font-weight:bold;
+    box-shadow:0 0 20px rgba(255,255,255,.5);
+    transition:.3s;
+}
+
+.start-btn:hover{
+    transform:scale(1.08);
+}
+
+.card{
+    display:none;
+    width:90%;
+    max-width:900px;
+    margin:40px auto;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(18px);
+    border-radius:30px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 0 40px rgba(255,255,255,.2);
+    animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h2{
+    font-size:2.8rem;
+    margin-bottom:25px;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.04);
+    }
+}
+
+.typing{
+    font-size:1.25rem;
+    line-height:1.9;
+    white-space:pre-wrap;
+    border-right:3px solid white;
+    display:inline-block;
+    text-align:left;
+    max-width:100%;
+}
+
+.signature{
+    margin-top:35px;
+    font-size:1.5rem;
+}
+
+.arrow{
+    font-size:2rem;
+    margin-top:30px;
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(10px);}
+}
+
+.float{
+    position:fixed;
+    font-size:2rem;
+    animation:float 12s linear infinite;
+    opacity:.8;
+    z-index:-1;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh) rotate(0deg);
+    }
+    to{
+        transform:translateY(-20vh) rotate(360deg);
+    }
+}
+
+.f1{left:5%;animation-duration:8s;}
+.f2{left:15%;animation-duration:12s;}
+.f3{left:30%;animation-duration:10s;}
+.f4{left:50%;animation-duration:14s;}
+.f5{left:70%;animation-duration:9s;}
+.f6{left:85%;animation-duration:13s;}
+.f7{left:95%;animation-duration:11s;}
+
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:0;
+}
+
+@media(max-width:768px){
+    h2{
+        font-size:2rem;
+    }
+
+    .typing{
+        font-size:1.05rem;
+    }
+
+    .start-screen h1{
+        font-size:2.2rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="confetti"></canvas>
+
+<div class="float f1">🎉</div>
+<div class="float f2">✨</div>
+<div class="float f3">🚀</div>
+<div class="float f4">🌟</div>
+<div class="float f5">🎊</div>
+<div class="float f6">💫</div>
+<div class="float f7">👏</div>
+
+<div class="start-screen" id="startScreen">
+
+    <h1>❤️ A Special Message ❤️</h1>
+
+    <button class="start-btn" onclick="startExperience()">
+        Open Message 🚀
+    </button>
+
+</div>
+
+<div class="card" id="card">
+
+    <h2>🚀 Thank You Mayank Wadhwa 🚀</h2>
+
+    <div id="typingText" class="typing"></div>
+
+    <div class="signature">
+        <br>
+        Best Wishes ❤️<br>
+        Bharat
+    </div>
+
+    <div class="arrow">
+        ⬇️
+    </div>
+
+</div>
+
+<audio id="music" loop>
+    <source src="https://raw.githubusercontent.com/bharatlinux5701/stuff/main/bday_music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const message = `
+Dear Mayank,
+
+Today is not just about saying goodbye,
+it is about celebrating the journey you had with us.
+
+Your professionalism, dedication, positive attitude,
+and willingness to help others have made a lasting impact on everyone around you.
+
+Working alongside you has been a pleasure.
+
+Thank you for the support,
+the collaboration, and the many great memories.
+
+As you move forward to a new chapter,
+may you continue to achieve incredible success,
+discover exciting opportunities,
+and create even more inspiring stories.
+
+Every ending opens the door to a new beginning.
+
+We'll truly going to miss you having around.
+
+🌟 Once a teammate, always a friend. 🌟
+
+Wishing you happiness,
+good health,
+success,
+and endless achievements.
+
+Good luck on your next adventure, Mayank W!
+
+    "Hadiya acche se todna AWS ki 🤣🤣🤣🤣"
+
+`;
+
+function startExperience(){
+
+    document.getElementById('startScreen').style.display='none';
+    document.getElementById('card').style.display='block';
+
+    document.getElementById('music').play().catch(()=>{});
+
+    startTyping();
+
+    startConfetti();
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+}
+
+function startTyping(){
+
+    const target=document.getElementById('typingText');
+
+    let i=0;
+
+    function type(){
+
+        if(i<message.length){
+
+            target.innerHTML += message.charAt(i);
+
+            i++;
+
+            setTimeout(type,30);
+        }
+    }
+
+    type();
+}
+
+function startConfetti(){
+
+    const canvas=document.getElementById('confetti');
+
+    const ctx=canvas.getContext('2d');
+
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+
+    const particles=[];
+
+    for(let i=0;i<200;i++){
+
+        particles.push({
+            x:Math.random()*canvas.width,
+            y:Math.random()*canvas.height,
+            r:Math.random()*5+2,
+            speed:Math.random()*3+1
+        });
+    }
+
+    function draw(){
+
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+
+        ctx.fillStyle='white';
+
+        particles.forEach(p=>{
+
+            ctx.beginPath();
+            ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+            ctx.fill();
+
+            p.y += p.speed;
+
+            if(p.y>canvas.height){
+                p.y=0;
+            }
+        });
+
+        requestAnimationFrame(draw);
+    }
+
+    draw();
+}
+
+window.addEventListener('resize',()=>{
+    const canvas=document.getElementById('confetti');
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+});
+</script>
+
+</body>
+</html>
