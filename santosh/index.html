@@ -95,9 +95,41 @@ button:hover{
     min-height:50px;
 }
 
+css
 #friendMessage{
     display:none;
     margin-top:25px;
+    background:rgba(255,255,255,0.95);
+    color:#444;
+    border-radius:20px;
+    padding:30px;
+    text-align:left;
+    border-left:8px solid #ff1493;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+
+    /* Scroll Settings */
+    max-height:400px;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+/* Pink Scrollbar */
+#friendMessage::-webkit-scrollbar{
+    width:10px;
+}
+
+#friendMessage::-webkit-scrollbar-track{
+    background:#ffe4ef;
+    border-radius:10px;
+}
+
+#friendMessage::-webkit-scrollbar-thumb{
+    background:#ff1493;
+    border-radius:10px;
+}
+
+#friendMessage::-webkit-scrollbar-thumb:hover{
+    background:#ff4081;
 }
 
 .floating{
@@ -115,14 +147,14 @@ button:hover{
 <h1>🌸 Dear Santosh 🌸</h1>
 
 <div class="subtitle">
-✨ A Small Appreciation Page ✨
+✨ A Small Appreciation Message ✨
 </div>
 
 <div class="icon">🌷</div>
 
 <div class="card">
 
-<h2>💼 To An Amazing Professional & Friend</h2>
+<h2>💼 To An Amazing Professional & Person</h2>
 
 <p>
 Thank you for your positivity, dedication and wonderful conversations.
@@ -134,15 +166,15 @@ Thank you for your positivity, dedication and wonderful conversations.
 
 <br>
 
-<button class="primary" onclick="showSurprise()">
+<button class="secondary" onclick="showSurprise()">
 🌸 Appreciation Note
 </button>
 
 <button class="secondary" onclick="openMessage()">
-✨ Open Friendship Message
+✨ Open Note!
 </button>
 
-<button class="primary" onclick="showCareerWish()">
+<button class="secondary" onclick="showCareerWish()">
 💼 Career Wishes
 </button>
 
@@ -150,7 +182,7 @@ Thank you for your positivity, dedication and wonderful conversations.
 😊 Why You're Special
 </button>
 
-<button class="primary" onclick="showFirstImpression()">
+<button class="secondary" onclick="showFirstImpression()">
 🌷 First Impression
 </button>
 
@@ -164,39 +196,116 @@ Thank you for your positivity, dedication and wonderful conversations.
 
 <p style="line-height:1.8">
 
-Dear Santosh,
+<p style="line-height:2; font-size:18px;">
+
+Dear Santosh!!
 
 <br><br>
 
-Sometimes we meet people unexpectedly and a simple conversation leaves a positive impression.
+🌸 Sometimes life introduces us to people in the most unexpected ways, and what begins as a simple conversation leaves a lasting impression.
 
 <br><br>
 
-We first connected through discussions about investments, but what I appreciate most is your dedication, professionalism and positive attitude.
+We first connected through discussions about investments, but over time I realized that what made those conversations memorable was not just the topic itself, but the positivity, professionalism, and sincerity you bring to every interaction.
 
 <br><br>
 
-Working in sales requires patience, confidence and strong people skills, and you carry all of these qualities naturally.
+💼 Working in sales requires patience, confidence, dedication, and the ability to connect with people from all walks of life. These qualities are not easy to develop, yet you carry them naturally and gracefully.
 
 <br><br>
 
-Thank you for the conversations, guidance and positive energy you bring.
+✨ Thank you for the conversations, the guidance, and the positive energy you bring to the people around you every day. Your commitment towards your work and your willingness to help others are qualities that truly deserve appreciation.
 
 <br><br>
 
-I wish you continued success in your career, happiness in life and countless wonderful moments with your family.
+🌷 It is inspiring to see someone who approaches every challenge with determination and every opportunity with enthusiasm. Your professionalism and positive attitude create a lasting impact on the people you interact with.
 
 <br><br>
 
-Keep smiling, keep growing and keep inspiring people around you.
+🌟 I sincerely wish you continued success in your career, happiness in your personal life, and countless beautiful moments with your family.
 
 <br><br>
 
-✨ Best Wishes Always ✨
+👨‍👩‍👧 Family is one of life's greatest blessings, and I hope your home is always filled with happiness, laughter, love and beautiful memories.
 
 <br><br>
 
-— Bharat
+💖 May your daughter continue to grow with confidence, joy and success, bringing countless proud moments and happiness to your family.
+
+<br><br>
+
+🌸 May she always be surrounded by love, encouragement and opportunities to achieve her dreams.
+
+<br><br>
+
+🤝 Wishing you and your husband a wonderful journey together filled with understanding, support, good health and many reasons to smile.
+
+<br><br>
+
+✨ May your family continue to be blessed with happiness, prosperity and countless memorable moments in the years ahead.
+
+<br><br>
+
+🌟 May every target become an achievement.
+
+<br><br>
+
+🌟 May every challenge become an opportunity.
+
+<br><br>
+
+🌟 May every effort be rewarded with success.
+
+<br><br>
+
+🌟 May every dream find its way to reality.
+
+<br><br>
+
+🌟 May every day bring new opportunities, memorable experiences, and reasons to celebrate.
+
+<br><br>
+
+✨ Keep inspiring people around you with your dedication, kindness, and determination.
+
+<br><br>
+
+💖 Wishing you happiness, success, good health, and all the best for the wonderful journey ahead.
+
+<br><br>
+
+🌸 Good conversations create good friendships, and good people leave lasting impressions. 🌸
+
+<br><br>
+
+🌸 Every interaction is an opportunity to learn something new, and your positive outlook makes those interactions memorable.
+
+<br><br>
+
+✨ The dedication and professionalism you bring to your work are qualities that inspire confidence and trust.
+
+<br><br>
+
+🌸 May your journey ahead be filled with success, good health, happiness and countless achievements.
+
+<br><br>
+
+✨ Keep spreading positivity wherever you go.
+
+<br><br>
+
+😊 Stay confident.
+
+<br><br>
+
+🌸 Stay positive.
+
+<br><br>
+Warm Regards,
+<br><br>
+<strong>Bharat</strong>
+
+</p>
 
 </p>
 
@@ -206,7 +315,7 @@ Keep smiling, keep growing and keep inspiring people around you.
 
 <!-- Background Music -->
 <audio id="bgMusic" autoplay loop>
-    <source src="https://raw.githubusercontent.com/bharatlinux5701/stuff/santosh/ranjha.mp3" type="audio/mpeg">
+    <source src="https://raw.githubusercontent.com/bharatlinux5701/stuff/main/santosh/ranjha.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -259,7 +368,7 @@ function showCareerWish(){
     closeMessage();
 
     document.getElementById("surpriseMessage").innerHTML =
-    "💼 May every target become an achievement and every effort bring success. Wishing you a wonderful career ahead.";
+    "💼 May every target become an achievement and every effort bring success. Wishing you a wonderful career.";
 
     createBurst();
 }
