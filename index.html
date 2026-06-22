@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Bindu ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 'Segoe UI', sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffc3a0);
+    text-align:center;
+    color:white;
+}
+
+.container{
+    padding:40px 20px;
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    font-size:4rem;
+    margin-top:20px;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    50%{transform:scale(1.05);}
+}
+
+.subtitle{
+    font-size:1.6rem;
+    margin-top:10px;
+}
+
+.cake{
+    font-size:120px;
+    margin:20px 0;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    50%{transform:translateY(-15px);}
+}
+
+.card{
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:25px;
+    margin:20px auto;
+}
+
+button{
+    padding:14px 28px;
+    border:none;
+    border-radius:30px;
+    margin:10px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.primary{
+    background:white;
+    color:#ff4081;
+}
+
+.secondary{
+    background:#ff4081;
+    color:white;
+}
+
+.message{
+    margin-top:20px;
+    font-size:1.3rem;
+}
+
+#loveLetter{
+    display:none;
+    margin-top:25px;
+}
+
+#countdown{
+    font-size:1.4rem;
+    margin:15px 0;
+}
+
+#clickCounter{
+    font-size:1.3rem;
+    margin:10px 0;
+}
+
+.floating{
+    position:fixed;
+    pointer-events:none;
+    z-index:9999;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>🎉 Happy Birthday Bindu 🎉</h1>
+
+<div class="subtitle">
+❤️ Celebrating 15 Beautiful Years Together ❤️
+</div>
+
+<div class="cake">🎂</div>
+
+<div class="card">
+
+<h2>🎂 Birthday Date</h2>
+<p><strong>15 August 2026</strong></p>
+
+<div id="countdown"></div>
+
+<div id="clickCounter">
+❤️ Love Clicks: 0
+</div>
+
+<button class="primary" onclick="showSurprise()">
+🎁 Surprise Me
+</button>
+
+<button class="secondary" onclick="openLetter()">
+💌 Open Love Letter
+</button>
+
+<div id="surpriseMessage" class="message"></div>
+
+</div>
+
+<div id="loveLetter" class="card">
+
+<h2>💖 My Love Letter To Bindu 💖</h2>
+
+<p style="line-height:1.8">
+
+My Dearest Bindu,
+
+<br><br>
+
+Happy Birthday My Love ❤️
+
+Today is a celebration of the most beautiful person in my life.
+
+Thank you for filling my world with love, happiness, strength and countless memories.
+
+These years together have been the most precious chapter of my life.
+
+You are my best friend, my support system and my greatest blessing.
+
+May your birthday be filled with endless smiles, laughter, love and happiness.
+
+I promise to cherish and love you today, tomorrow and forever.
+
+<br><br>
+
+❤️ Forever Yours ❤️
+
+<br><br>
+
+— Bharat
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Background Birthday Music -->
+
+<audio id="birthdayMusic" autoplay loop preload="auto">
+    <source src="https://raw.githubusercontent.com/bharatlinux5701/stuff/main/bday_music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+
+let clicks = 0;
+
+const messages = [
+"🌹 You are my greatest blessing.",
+"❤️ Thank you for 15 beautiful years.",
+"💖 Every day with you is special.",
+"✨ You make life magical.",
+"🥰 I fall in love with you every day.",
+"🌸 You are the heart of our family.",
+"🎂 Today is all about YOU."
+];
+
+function showSurprise(){
+
+    clicks++;
+
+    document.getElementById("clickCounter").innerHTML =
+        "❤️ Love Clicks: " + clicks;
+
+    const msg =
+        messages[Math.floor(Math.random()*messages.length)];
+
+    document.getElementById("surpriseMessage").innerHTML = msg;
+
+    createBurst();
+}
+
+function openLetter(){
+
+    const letter =
+        document.getElementById("loveLetter");
+
+    if(letter.style.display==="block"){
+        letter.style.display="none";
+    }else{
+        letter.style.display="block";
+        letter.scrollIntoView({
+            behavior:"smooth"
+        });
+    }
+}
+
+
+function createBurst(){
+
+    const emojis =
+    ["❤️","🌹","🎂","🎉","✨","💖","🌸"];
+
+    for(let i=0;i<20;i++){
+
+        const item =
+        document.createElement("div");
+
+        item.className="floating";
+        item.innerHTML=
+        emojis[Math.floor(Math.random()*emojis.length)];
+
+        item.style.left=Math.random()*100+"vw";
+        item.style.top=Math.random()*100+"vh";
+        item.style.fontSize=
+        (20+Math.random()*30)+"px";
+
+        document.body.appendChild(item);
+
+        setTimeout(()=>{
+            item.remove();
+        },2000);
+    }
+}
+
+/* Countdown */
+
+const birthday =
+new Date("August 15, 2026 00:00:00").getTime();
+
+setInterval(()=>{
+
+const now = new Date().getTime();
+
+const distance = birthday-now;
+
+if(distance<0){
+
+document.getElementById("countdown")
+.innerHTML="🎉 Happy Birthday Bindu!";
+
+return;
+}
+
+const days =
+Math.floor(distance/(1000*60*60*24));
+
+const hours =
+Math.floor(
+(distance%(1000*60*60*24))
+/
+(1000*60*60)
+);
+
+const mins =
+Math.floor(
+(distance%(1000*60*60))
+/
+(1000*60)
+);
+
+document.getElementById("countdown")
+.innerHTML =
+`⏳ ${days} Days ${hours} Hours ${mins} Minutes Remaining`;
+
+},1000);
+
+/* Confetti on Page Load */
+
+window.onload = () => {
+
+    /* Start Music */
+
+    const music = document.getElementById("birthdayMusic");
+
+    music.play().catch(() => {
+        console.log("Browser blocked autoplay.");
+    });
+
+    /* Retry on First Click */
+
+    document.addEventListener("click", () => {
+        music.play().catch(() => {});
+    }, { once: true });
+
+    /* Confetti Animation */
+
+    for(let i=0;i<150;i++){
+
+        const confetti =
+        document.createElement("div");
+
+        confetti.className="floating";
+
+        confetti.innerHTML=
+        ["🎉","✨","❤️","💖","🌹","🎂"]
+        [Math.floor(Math.random()*6)];
+
+        confetti.style.left=
+        Math.random()*100+"vw";
+
+        confetti.style.top="-50px";
+
+        confetti.style.fontSize=
+        (15+Math.random()*25)+"px";
+
+        confetti.style.transition=
+        "all 5s linear";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(()=>{
+            confetti.style.top="110vh";
+        },100);
+
+        setTimeout(()=>{
+            confetti.remove();
+        },6000);
+    }
+};
+
+/* Falling Roses on Click */
+
+document.addEventListener(
+"click",
+function(e){
+
+for(let i=0;i<12;i++){
+
+const rose =
+document.createElement("div");
+
+rose.className="floating";
+rose.innerHTML="🌹";
+
+rose.style.left=e.clientX+"px";
+rose.style.top=e.clientY+"px";
+
+rose.style.fontSize=
+(20+Math.random()*20)+"px";
+
+rose.style.transition=
+"all 3s ease-out";
+
+document.body.appendChild(rose);
+
+setTimeout(()=>{
+
+rose.style.left=
+(e.clientX-150+
+Math.random()*300)+"px";
+
+rose.style.top=
+(e.clientY-250+
+Math.random()*200)+"px";
+
+rose.style.opacity="0";
+
+},50);
+
+setTimeout(()=>{
+rose.remove();
+},3000);
+
+}
+});
+</script>
+
+</body>
+</html>
