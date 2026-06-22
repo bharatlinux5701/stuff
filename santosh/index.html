@@ -6,10 +6,8 @@
 <title>For Santosh 🌸</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+html{
+    scroll-behavior:smooth;
 }
 
 body{
@@ -95,7 +93,6 @@ button:hover{
     min-height:50px;
 }
 
-css
 #friendMessage{
     display:none;
     margin-top:25px;
@@ -106,11 +103,8 @@ css
     text-align:left;
     border-left:8px solid #ff1493;
     box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
 
-    /* Scroll Settings */
-    max-height:400px;
-    overflow-y:auto;
-    overflow-x:hidden;
 }
 
 /* Pink Scrollbar */
@@ -171,7 +165,7 @@ Thank you for your positivity, dedication and wonderful conversations.
 </button>
 
 <button class="secondary" onclick="openMessage()">
-✨ Open Note!
+✨ Open Special Note
 </button>
 
 <button class="secondary" onclick="showCareerWish()">
@@ -210,7 +204,7 @@ We first connected through discussions about investments, but over time I realiz
 
 <br><br>
 
-💼 Working in sales requires patience, confidence, dedication, and the ability to connect with people from all walks of life. These qualities are not easy to develop, yet you carry them naturally and gracefully.
+💼 Working in sales requires patience, confidence, and dedication. These qualities are clearly reflected in the way you interact with people and approach your work.
 
 <br><br>
 
@@ -348,19 +342,26 @@ function showSurprise(){
 
 function openMessage(){
 
-    document.getElementById("surpriseMessage").innerHTML="";
+    document.getElementById("surpriseMessage").innerHTML = "";
 
-    const box =
-    document.getElementById("friendMessage");
+    const box = document.getElementById("friendMessage");
 
-    if(box.style.display==="block"){
-        box.style.display="none";
-    }else{
-        box.style.display="block";
-        box.scrollIntoView({
-            behavior:"smooth"
+    box.style.display = "block";
+
+    setTimeout(() => {
+
+        const y =
+            box.getBoundingClientRect().top +
+            window.pageYOffset - 20;
+
+        window.scrollTo({
+            top: y,
+            behavior: "smooth"
         });
-    }
+
+    }, 300);
+
+    createBurst();
 }
 
 function showCareerWish(){
