@@ -34,7 +34,9 @@ h1{
 }
 
 @keyframes pulse{
-    50%{transform:scale(1.05);}
+    50%{
+        transform:scale(1.05);
+    }
 }
 
 .subtitle{
@@ -49,7 +51,9 @@ h1{
 }
 
 @keyframes bounce{
-    50%{transform:translateY(-15px);}
+    50%{
+        transform:translateY(-15px);
+    }
 }
 
 .card{
@@ -88,16 +92,12 @@ button:hover{
 .message{
     margin-top:20px;
     font-size:1.25rem;
+    min-height:50px;
 }
 
 #friendMessage{
     display:none;
     margin-top:25px;
-}
-
-#clickCounter{
-    font-size:1.3rem;
-    margin:10px 0;
 }
 
 .floating{
@@ -184,11 +184,11 @@ Thank you for the conversations, guidance and positive energy you bring.
 
 <br><br>
 
-I wish you continued success in your career, happiness in life, and countless wonderful moments with your family.
+I wish you continued success in your career, happiness in life and countless wonderful moments with your family.
 
 <br><br>
 
-Keep smiling, keep growing, and keep inspiring people around you.
+Keep smiling, keep growing and keep inspiring people around you.
 
 <br><br>
 
@@ -204,6 +204,11 @@ Keep smiling, keep growing, and keep inspiring people around you.
 
 </div>
 
+<!-- Background Music -->
+<audio id="bgMusic" autoplay loop>
+    <source src="https://raw.githubusercontent.com/bharatlinux5701/stuff/santosh/ranjha.mp3" type="audio/mpeg">
+</audio>
+
 <script>
 
 const messages = [
@@ -217,7 +222,7 @@ const messages = [
 ];
 
 function closeMessage(){
-    document.getElementById('friendMessage').style.display='none';
+    document.getElementById("friendMessage").style.display="none";
 }
 
 function showSurprise(){
@@ -227,23 +232,25 @@ function showSurprise(){
     const msg =
     messages[Math.floor(Math.random()*messages.length)];
 
-    document.getElementById('surpriseMessage').innerHTML = msg;
+    document.getElementById("surpriseMessage").innerHTML = msg;
 
     createBurst();
 }
 
 function openMessage(){
 
-    document.getElementById('surpriseMessage').innerHTML='';
+    document.getElementById("surpriseMessage").innerHTML="";
 
     const box =
-    document.getElementById('friendMessage');
+    document.getElementById("friendMessage");
 
-    if(box.style.display==='block'){
-        box.style.display='none';
+    if(box.style.display==="block"){
+        box.style.display="none";
     }else{
-        box.style.display='block';
-        box.scrollIntoView({behavior:'smooth'});
+        box.style.display="block";
+        box.scrollIntoView({
+            behavior:"smooth"
+        });
     }
 }
 
@@ -251,8 +258,8 @@ function showCareerWish(){
 
     closeMessage();
 
-    document.getElementById('surpriseMessage').innerHTML =
-    '💼 May every target become an achievement and every effort bring success. Wishing you a wonderful career ahead.';
+    document.getElementById("surpriseMessage").innerHTML =
+    "💼 May every target become an achievement and every effort bring success. Wishing you a wonderful career ahead.";
 
     createBurst();
 }
@@ -261,8 +268,8 @@ function showSmile(){
 
     closeMessage();
 
-    document.getElementById('surpriseMessage').innerHTML =
-    '😊 Your kindness, confidence and positive attitude are what make you special.';
+    document.getElementById("surpriseMessage").innerHTML =
+    "😊 Your kindness, confidence and positive attitude are what make you special.";
 
     createBurst();
 }
@@ -271,8 +278,8 @@ function showFirstImpression(){
 
     closeMessage();
 
-    document.getElementById('surpriseMessage').innerHTML =
-    '🌷 My first impression was that you are confident, professional and genuinely pleasant to talk to.';
+    document.getElementById("surpriseMessage").innerHTML =
+    "🌷 My first impression was that you are confident, professional and genuinely pleasant to talk to.";
 
     createBurst();
 }
@@ -280,26 +287,26 @@ function showFirstImpression(){
 function createBurst(){
 
     const emojis =
-    ['🌸','🌷','✨','💖','🌺'];
+    ["🌸","🌷","✨","💖","🌺"];
 
     for(let i=0;i<20;i++){
 
         const item =
-        document.createElement('div');
+        document.createElement("div");
 
-        item.className='floating';
+        item.className="floating";
 
         item.innerHTML =
         emojis[Math.floor(Math.random()*emojis.length)];
 
         item.style.left =
-        Math.random()*100+'vw';
+        Math.random()*100+"vw";
 
         item.style.top =
-        Math.random()*100+'vh';
+        Math.random()*100+"vh";
 
         item.style.fontSize =
-        (20+Math.random()*30)+'px';
+        (20+Math.random()*30)+"px";
 
         document.body.appendChild(item);
 
@@ -309,79 +316,90 @@ function createBurst(){
     }
 }
 
-window.onload = ()=>{
-
-    for(let i=0;i<150;i++){
-
-        const flower =
-        document.createElement('div');
-
-        flower.className='floating';
-
-        flower.innerHTML =
-        ['🌸','🌷','✨','💖','🌺']
-        [Math.floor(Math.random()*5)];
-
-        flower.style.left =
-        Math.random()*100+'vw';
-
-        flower.style.top='-50px';
-
-        flower.style.fontSize =
-        (15+Math.random()*25)+'px';
-
-        flower.style.transition =
-        'all 5s linear';
-
-        document.body.appendChild(flower);
-
-        setTimeout(()=>{
-            flower.style.top='110vh';
-        },100);
-
-        setTimeout(()=>{
-            flower.remove();
-        },6000);
+/* Music starts after first interaction */
+document.addEventListener("click", function () {
+    const music = document.getElementById("bgMusic");
+    if(music.paused){
+        music.play();
     }
+}, { once:true });
+
+/* Welcome flowers */
+window.onload=()=>{
+
+for(let i=0;i<120;i++){
+
+const flower =
+document.createElement("div");
+
+flower.className="floating";
+
+flower.innerHTML=
+["🌸","🌷","✨","💖","🌺"]
+[Math.floor(Math.random()*5)];
+
+flower.style.left=
+Math.random()*100+"vw";
+
+flower.style.top="-50px";
+
+flower.style.fontSize=
+(15+Math.random()*25)+"px";
+
+flower.style.transition=
+"all 5s linear";
+
+document.body.appendChild(flower);
+
+setTimeout(()=>{
+flower.style.top="110vh";
+},100);
+
+setTimeout(()=>{
+flower.remove();
+},6000);
+}
 };
 
-document.addEventListener('click',function(e){
+/* Flower burst on click */
+document.addEventListener("click",function(e){
 
-    for(let i=0;i<12;i++){
+for(let i=0;i<10;i++){
 
-        const flower =
-        document.createElement('div');
+const flower =
+document.createElement("div");
 
-        flower.className='floating';
-        flower.innerHTML='🌸';
+flower.className="floating";
+flower.innerHTML="🌸";
 
-        flower.style.left=e.clientX+'px';
-        flower.style.top=e.clientY+'px';
+flower.style.left=e.clientX+"px";
+flower.style.top=e.clientY+"px";
 
-        flower.style.fontSize=
-        (20+Math.random()*20)+'px';
+flower.style.fontSize=
+(20+Math.random()*20)+"px";
 
-        flower.style.transition=
-        'all 3s ease-out';
+flower.style.transition=
+"all 3s ease-out";
 
-        document.body.appendChild(flower);
+document.body.appendChild(flower);
 
-        setTimeout(()=>{
+setTimeout(()=>{
 
-            flower.style.left=
-            (e.clientX-150+Math.random()*300)+'px';
+flower.style.left=
+(e.clientX-150+Math.random()*300)+"px";
 
-            flower.style.top=
-            (e.clientY-250+Math.random()*200)+'px';
+flower.style.top=
+(e.clientY-250+Math.random()*200)+"px";
 
-            flower.style.opacity='0';
+flower.style.opacity="0";
 
-        },50);
+},50);
 
-        setTimeout(()=>{
-            flower.remove();
-        },3000);
-    }
+setTimeout(()=>{
+flower.remove();
+},3000);
+
+}
 });
 
 </script>
