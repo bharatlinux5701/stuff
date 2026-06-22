@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Santosh 🌸</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3,#a18cd1,#84fab0);
+    text-align:center;
+    color:white;
+}
+
+.container{
+    padding:40px 20px;
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    font-size:4rem;
+    margin-top:20px;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    50%{transform:scale(1.05);}
+}
+
+.subtitle{
+    font-size:1.5rem;
+    margin-top:10px;
+}
+
+.icon{
+    font-size:110px;
+    margin:20px 0;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    50%{transform:translateY(-15px);}
+}
+
+.card{
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:25px;
+    margin:20px auto;
+}
+
+button{
+    padding:14px 28px;
+    border:none;
+    border-radius:30px;
+    margin:10px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.primary{
+    background:white;
+    color:#ff4081;
+}
+
+.secondary{
+    background:#ff4081;
+    color:white;
+}
+
+.message{
+    margin-top:20px;
+    font-size:1.25rem;
+}
+
+#friendMessage{
+    display:none;
+    margin-top:25px;
+}
+
+#clickCounter{
+    font-size:1.3rem;
+    margin:10px 0;
+}
+
+.floating{
+    position:fixed;
+    pointer-events:none;
+    z-index:9999;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌸 Dear Santosh 🌸</h1>
+
+<div class="subtitle">
+✨ A Small Appreciation Page ✨
+</div>
+
+<div class="icon">🌷</div>
+
+<div class="card">
+
+<h2>💼 To An Amazing Professional & Friend</h2>
+
+<p>
+Thank you for your positivity, dedication and wonderful conversations.
+</p>
+
+<div style="font-size:1.2rem;margin-top:15px;">
+✨ Good conversations create good friendships ✨
+</div>
+
+<br>
+
+<button class="primary" onclick="showSurprise()">
+🌸 Appreciation Note
+</button>
+
+<button class="secondary" onclick="openMessage()">
+✨ Open Friendship Message
+</button>
+
+<button class="primary" onclick="showCareerWish()">
+💼 Career Wishes
+</button>
+
+<button class="secondary" onclick="showSmile()">
+😊 Why You're Special
+</button>
+
+<button class="primary" onclick="showFirstImpression()">
+🌷 First Impression
+</button>
+
+<div id="surpriseMessage" class="message"></div>
+
+</div>
+
+<div id="friendMessage" class="card">
+
+<h2>🌸 A Note For Santosh 🌸</h2>
+
+<p style="line-height:1.8">
+
+Dear Santosh,
+
+<br><br>
+
+Sometimes we meet people unexpectedly and a simple conversation leaves a positive impression.
+
+<br><br>
+
+We first connected through discussions about investments, but what I appreciate most is your dedication, professionalism and positive attitude.
+
+<br><br>
+
+Working in sales requires patience, confidence and strong people skills, and you carry all of these qualities naturally.
+
+<br><br>
+
+Thank you for the conversations, guidance and positive energy you bring.
+
+<br><br>
+
+I wish you continued success in your career, happiness in life, and countless wonderful moments with your family.
+
+<br><br>
+
+Keep smiling, keep growing, and keep inspiring people around you.
+
+<br><br>
+
+✨ Best Wishes Always ✨
+
+<br><br>
+
+— Bharat
+
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+const messages = [
+"🌸 Your positivity makes conversations enjoyable.",
+"✨ Wishing you success in everything you do.",
+"😊 Thank you for always being professional and kind.",
+"💼 Your dedication towards your work is inspiring.",
+"🌷 Keep smiling and shining.",
+"🌸 Good people leave good impressions.",
+"✨ Friendship begins with simple conversations."
+];
+
+function closeMessage(){
+    document.getElementById('friendMessage').style.display='none';
+}
+
+function showSurprise(){
+
+    closeMessage();
+
+    const msg =
+    messages[Math.floor(Math.random()*messages.length)];
+
+    document.getElementById('surpriseMessage').innerHTML = msg;
+
+    createBurst();
+}
+
+function openMessage(){
+
+    document.getElementById('surpriseMessage').innerHTML='';
+
+    const box =
+    document.getElementById('friendMessage');
+
+    if(box.style.display==='block'){
+        box.style.display='none';
+    }else{
+        box.style.display='block';
+        box.scrollIntoView({behavior:'smooth'});
+    }
+}
+
+function showCareerWish(){
+
+    closeMessage();
+
+    document.getElementById('surpriseMessage').innerHTML =
+    '💼 May every target become an achievement and every effort bring success. Wishing you a wonderful career ahead.';
+
+    createBurst();
+}
+
+function showSmile(){
+
+    closeMessage();
+
+    document.getElementById('surpriseMessage').innerHTML =
+    '😊 Your kindness, confidence and positive attitude are what make you special.';
+
+    createBurst();
+}
+
+function showFirstImpression(){
+
+    closeMessage();
+
+    document.getElementById('surpriseMessage').innerHTML =
+    '🌷 My first impression was that you are confident, professional and genuinely pleasant to talk to.';
+
+    createBurst();
+}
+
+function createBurst(){
+
+    const emojis =
+    ['🌸','🌷','✨','💖','🌺'];
+
+    for(let i=0;i<20;i++){
+
+        const item =
+        document.createElement('div');
+
+        item.className='floating';
+
+        item.innerHTML =
+        emojis[Math.floor(Math.random()*emojis.length)];
+
+        item.style.left =
+        Math.random()*100+'vw';
+
+        item.style.top =
+        Math.random()*100+'vh';
+
+        item.style.fontSize =
+        (20+Math.random()*30)+'px';
+
+        document.body.appendChild(item);
+
+        setTimeout(()=>{
+            item.remove();
+        },2000);
+    }
+}
+
+window.onload = ()=>{
+
+    for(let i=0;i<150;i++){
+
+        const flower =
+        document.createElement('div');
+
+        flower.className='floating';
+
+        flower.innerHTML =
+        ['🌸','🌷','✨','💖','🌺']
+        [Math.floor(Math.random()*5)];
+
+        flower.style.left =
+        Math.random()*100+'vw';
+
+        flower.style.top='-50px';
+
+        flower.style.fontSize =
+        (15+Math.random()*25)+'px';
+
+        flower.style.transition =
+        'all 5s linear';
+
+        document.body.appendChild(flower);
+
+        setTimeout(()=>{
+            flower.style.top='110vh';
+        },100);
+
+        setTimeout(()=>{
+            flower.remove();
+        },6000);
+    }
+};
+
+document.addEventListener('click',function(e){
+
+    for(let i=0;i<12;i++){
+
+        const flower =
+        document.createElement('div');
+
+        flower.className='floating';
+        flower.innerHTML='🌸';
+
+        flower.style.left=e.clientX+'px';
+        flower.style.top=e.clientY+'px';
+
+        flower.style.fontSize=
+        (20+Math.random()*20)+'px';
+
+        flower.style.transition=
+        'all 3s ease-out';
+
+        document.body.appendChild(flower);
+
+        setTimeout(()=>{
+
+            flower.style.left=
+            (e.clientX-150+Math.random()*300)+'px';
+
+            flower.style.top=
+            (e.clientY-250+Math.random()*200)+'px';
+
+            flower.style.opacity='0';
+
+        },50);
+
+        setTimeout(()=>{
+            flower.remove();
+        },3000);
+    }
+});
+
+</script>
+
+</body>
+</html>
