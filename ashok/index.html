@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎉 Happy Birthday Ashok 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:'Poppins',sans-serif;
+overflow-x:hidden;
+background:linear-gradient(-45deg,#ff6b6b,#feca57,#48dbfb,#1dd1a1);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+color:#fff;
+}
+@keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.container{max-width:900px;margin:auto;padding:40px 20px;text-align:center}
+h1{font-size:3.8rem;text-shadow:3px 3px 12px rgba(0,0,0,.3);animation:pulse 2s infinite}
+.subtitle{font-size:1.3rem;margin:15px 0 25px;color:#fff9d6}
+@keyframes pulse{50%{transform:scale(1.05)}}
+.photo-container{display:flex;justify-content:center;margin:20px 0}
+.birthday-photo{
+width:230px;height:230px;border-radius:50%;object-fit:cover;
+border:8px solid #fff;
+box-shadow:0 0 20px #fff,0 0 45px gold,0 12px 35px rgba(0,0,0,.35);
+animation:glow 3s infinite alternate,floatPhoto 4s ease-in-out infinite;
+}
+@keyframes glow{
+from{box-shadow:0 0 15px #fff,0 0 30px gold,0 12px 35px rgba(0,0,0,.35)}
+to{box-shadow:0 0 30px #fff,0 0 60px gold,0 18px 45px rgba(0,0,0,.45)}
+}
+@keyframes floatPhoto{50%{transform:translateY(-10px)}}
+.cake{font-size:95px;margin:15px 0;animation:bounce 2s infinite}
+@keyframes bounce{50%{transform:translateY(-12px)}}
+.card{
+margin-top:25px;background:rgba(255,255,255,.16);
+backdrop-filter:blur(12px);border-radius:25px;padding:30px;
+box-shadow:0 15px 35px rgba(0,0,0,.25)}
+button{border:none;padding:14px 30px;border-radius:40px;cursor:pointer;font-size:17px;font-weight:bold;margin:12px;transition:.3s}
+.primary{background:#ff4757;color:#fff}.secondary{background:#2ed573;color:#fff}
+button:hover{transform:translateY(-4px) scale(1.05)}
+#letter{display:none}
+#msg{margin-top:18px;font-size:20px;font-weight:600;color:#fff9d6}
+.footer{margin-top:40px;font-size:50px}
+.floating{position:fixed;pointer-events:none;z-index:999;animation:float 2.2s linear forwards}
+@keyframes float{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(-180px) rotate(360deg)}}
+@media(max-width:700px){h1{font-size:2.5rem}.birthday-photo{width:180px;height:180px}.subtitle{font-size:1rem}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🎉 Happy Birthday Ashok 🎉</h1>
+<div class="subtitle">🎂 Wishing You Happiness, Success, Good Health & Endless Smiles 🎈</div>
+
+<div class="photo-container">
+<img src="ashok.jpg" class="birthday-photo" alt="Ashok">
+</div>
+
+<div class="cake">🎂</div>
+
+<div class="card">
+<h2>🎉 Birthday Celebration 🎉</h2>
+<p><strong>Celebrate Every Moment • Smile Every Day • Dream Big</strong></p><br>
+<p id="clicks">🎁 Birthday Wishes Sent: 0</p><br>
+<button class="primary" onclick="surprise()">🎁 Surprise Me</button>
+<button class="secondary" onclick="toggleLetter()">💌 Open Birthday Letter</button>
+<p id="msg"></p>
+</div>
+
+<div class="card" id="letter">
+<h2>Dear Ashok 🎂</h2>
+<p style="font-size:18px;line-height:1.9">
+Happy Birthday! 🎉🥳<br><br>
+May your birthday bring countless moments of happiness, endless opportunities, peace, prosperity and good health.
+May every dream you chase become a reality and every day ahead be filled with joy.<br><br>
+Keep smiling, stay positive, and continue inspiring everyone around you.<br><br>
+🎈 Wishing you laughter.<br>
+🎂 Wishing you success.<br>
+✨ Wishing you happiness.<br>
+❤️ Wishing you a wonderful year ahead.<br><br>
+<b>Happy Birthday Once Again!<br>Your Friend 🤝</b>
+</p>
+</div>
+
+<div class="footer">🎉 🎂 🎈 🎁 ✨ ❤️</div>
+</div>
+
+<audio id="music" autoplay loop>
+<source src="ashok.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let clicks=0;
+const messages=[
+"🎂 Have the happiest birthday ever!",
+"🎉 Wishing you endless success!",
+"🌟 May all your dreams come true!",
+"🎁 Enjoy every moment!",
+"❤️ Stay blessed and keep smiling!",
+"🥳 Cheers to another wonderful year!",
+"✨ Happiness always follows you!"
+];
+function surprise(){
+clicks++;
+document.getElementById("clicks").innerHTML="🎁 Birthday Wishes Sent: "+clicks;
+document.getElementById("msg").innerHTML=messages[Math.floor(Math.random()*messages.length)];
+const e=["🎉","🎂","🎈","🎁","✨","❤️","🥳","🌟","🎊","💚","🧡"];
+for(let i=0;i<35;i++){
+let d=document.createElement("div");
+d.className="floating";
+d.innerHTML=e[Math.floor(Math.random()*e.length)];
+d.style.left=Math.random()*100+"vw";
+d.style.top=(50+Math.random()*40)+"vh";
+d.style.fontSize=(20+Math.random()*30)+"px";
+document.body.appendChild(d);
+setTimeout(()=>d.remove(),2200);
+}}
+function toggleLetter(){
+const l=document.getElementById("letter");
+l.style.display=l.style.display==="block"?"none":"block";
+if(l.style.display==="block"){l.scrollIntoView({behavior:"smooth"});}
+}
+window.onload=()=>{
+const m=document.getElementById("music");
+m.play().catch(()=>{});
+document.addEventListener("click",()=>m.play().catch(()=>{}),{once:true});
+};
+</script>
+</body>
+</html>
