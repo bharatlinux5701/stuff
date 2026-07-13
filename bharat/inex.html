@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎉 Happy Birthday Bharat 🎂</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#6a11cb,#2575fc,#00c9ff);
+    background-size:300% 300%;
+    animation:bgMove 10s ease infinite;
+    overflow-x:hidden;
+    color:#fff;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.header{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.header h1{
+    font-size:3.5rem;
+    text-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+
+.header p{
+    margin-top:15px;
+    font-size:1.2rem;
+    color:#f8f8f8;
+}
+
+.main{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:380px 1fr;
+    gap:30px;
+    padding:20px;
+}
+
+.left{
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(12px);
+    border-radius:25px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+}
+
+.photo{
+    width:250px;
+    height:250px;
+    border-radius:20px;
+    object-fit:cover;
+    border:6px solid white;
+    box-shadow:0 0 20px gold;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+50%{transform:translateY(-12px);}
+}
+
+.cake{
+    font-size:80px;
+    margin:20px 0;
+}
+
+.right{
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(12px);
+    border-radius:25px;
+    padding:35px;
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+}
+
+.right h2{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.right p{
+    line-height:1.9;
+    font-size:18px;
+}
+
+.stats{
+    display:flex;
+    justify-content:space-between;
+    margin:25px 0;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.box{
+    flex:1;
+    min-width:180px;
+    background:rgba(255,255,255,.15);
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+}
+
+.box h3{
+    font-size:30px;
+}
+
+.buttons{
+    text-align:center;
+    margin-top:25px;
+}
+
+button{
+    border:none;
+    padding:15px 35px;
+    margin:10px;
+    border-radius:50px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+    font-weight:bold;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+.btn1{
+    background:#ff4d6d;
+    color:white;
+}
+
+.btn2{
+    background:#00c853;
+    color:white;
+}
+
+#message{
+    margin-top:25px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    color:#fff9c4;
+}
+
+.footer{
+    text-align:center;
+    padding:40px;
+    font-size:45px;
+}
+
+.floating{
+position:fixed;
+pointer-events:none;
+z-index:999;
+animation:rise 2.5s linear forwards;
+}
+
+@keyframes rise{
+0%{
+opacity:1;
+transform:translateY(0) rotate(0deg);
+}
+100%{
+opacity:0;
+transform:translateY(-220px) rotate(360deg);
+}
+}
+
+@media(max-width:900px){
+
+.main{
+grid-template-columns:1fr;
+}
+
+.photo{
+width:220px;
+height:220px;
+}
+
+.header h1{
+font-size:2.6rem;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+<h1>🎉 Happy Birthday Bharat 🎉</h1>
+<p>🎂 May your life be filled with happiness, success, good health and unforgettable memories.</p>
+</div>
+
+<div class="main">
+
+<div class="left">
+
+<img src="bharat.jpg" class="photo" alt="Bharat">
+
+<div class="cake">🎂</div>
+
+<h2>Bharat</h2>
+
+<p>Have an amazing birthday and a fantastic year ahead!</p>
+
+</div>
+
+<div class="right">
+
+<h2>💌 Birthday Wishes</h2>
+
+<p>
+Dear Bharat,
+<br><br>
+
+Wishing you a birthday filled with joy, laughter, love and countless beautiful moments.
+May every dream you chase become a reality, and every new day bring happiness, peace and success.
+
+<br><br>
+
+✨ Stay healthy.<br>
+🎯 Achieve all your goals.<br>
+❤️ Keep smiling always.<br>
+🌟 Shine brighter every year.<br>
+🎁 Enjoy every special moment.
+
+<br><br>
+
+Happy Birthday once again! 🎉🎂
+</p>
+
+<div class="stats">
+
+<div class="box">
+<h3 id="count">0</h3>
+Birthday Wishes
+</div>
+
+<div class="box">
+<h3>100%</h3>
+Happiness
+</div>
+
+<div class="box">
+<h3>∞</h3>
+Best Wishes
+</div>
+
+</div>
+
+<div class="buttons">
+
+<button class="btn1" onclick="celebrate()">🎁 Celebrate</button>
+
+<button class="btn2" onclick="music()">🎵 Play Music</button>
+
+</div>
+
+<div id="message"></div>
+
+</div>
+
+</div>
+
+<div class="footer">
+🎈 🎉 🎂 🎁 ✨ ❤️ 🥳 🌟
+</div>
+
+<audio id="song" loop>
+<source src="bharat.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let wishes=0;
+
+const msg=[
+"🎂 Happy Birthday Bharat!",
+"🎉 Have a fantastic year ahead!",
+"🌟 Success and Happiness Always!",
+"🎁 Stay Blessed!",
+"❤️ Keep Smiling!",
+"🥳 Enjoy Your Special Day!",
+"✨ Dreams Come True!"
+];
+
+function celebrate(){
+
+wishes++;
+
+document.getElementById("count").innerHTML=wishes;
+
+document.getElementById("message").innerHTML=msg[Math.floor(Math.random()*msg.length)];
+
+const emoji=["🎉","🎂","🎈","🎁","✨","❤️","🥳","🌟","🎊","💙","💛"];
+
+for(let i=0;i<40;i++){
+
+let d=document.createElement("div");
+
+d.className="floating";
+
+d.innerHTML=emoji[Math.floor(Math.random()*emoji.length)];
+
+d.style.left=Math.random()*100+"vw";
+
+d.style.top=(60+Math.random()*30)+"vh";
+
+d.style.fontSize=(20+Math.random()*30)+"px";
+
+document.body.appendChild(d);
+
+setTimeout(()=>d.remove(),2500);
+
+}
+
+}
+
+function music(){
+
+let s=document.getElementById("song");
+
+if(s.paused){
+
+s.play();
+
+}else{
+
+s.pause();
+
+}
+
+}
+
+window.onload=function(){
+
+setTimeout(celebrate,800);
+
+}
+
+</script>
+
+</body>
+</html>
