@@ -7,7 +7,64 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
+font-family:Poppins,sans-serif;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow-x:hidden;
+overflow-y:auto;
+padding:25px;
+position:relative;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fff5c3,#fff,#b8f2e6,#84fab0);
+background-size:400% 400%;
+animation:gradientMove 18s ease infinite;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+body:before{
+content:"";
+position:fixed;
+width:520px;
+height:520px;
+border-radius:50%;
+background:#ff9933;
+filter:blur(130px);
+opacity:.35;
+top:-180px;
+left:-120px;
+animation:b1 12s ease-in-out infinite alternate;
+}
+
+body:after{
+content:"";
+position:fixed;
+width:520px;
+height:520px;
+border-radius:50%;
+background:#138808;
+filter:blur(130px);
+opacity:.3;
+bottom:-180px;
+right:-120px;
+animation:b2 14s ease-in-out infinite alternate;
+}
+
+@keyframes b1{
+to{transform:translate(120px,90px) scale(1.25)}
+}
+
+@keyframes b2{
+to{transform:translate(-100px,-110px) scale(1.2)}
+}
+
 .card{
 position:relative;
 z-index:2;
@@ -20,34 +77,63 @@ text-align:center;
 background:rgba(255,255,255,.18);
 backdrop-filter:blur(24px);
 border:1px solid rgba(255,255,255,.35);
-box-shadow:0 20px 60px rgba(0,0,0,.18),0 0 40px rgba(255,153,51,.18),0 0 40px rgba(19,136,8,.15)
+box-shadow:0 20px 60px rgba(0,0,0,.18),0 0 40px rgba(255,153,51,.18),0 0 40px rgba(19,136,8,.15);
 }
-@keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-body:before{
-content:"";position:fixed;width:520px;height:520px;border-radius:50%;
-background:#ff9933;filter:blur(130px);opacity:.35;
-top:-180px;left:-120px;animation:b1 12s ease-in-out infinite alternate}
-body:after{
-content:"";position:fixed;width:520px;height:520px;border-radius:50%;
-background:#138808;filter:blur(130px);opacity:.3;
-bottom:-180px;right:-120px;animation:b2 14s ease-in-out infinite alternate}
-@keyframes b1{to{transform:translate(120px,90px) scale(1.25)}}
-@keyframes b2{to{transform:translate(-100px,-110px) scale(1.2)}}
-.card{
-position:relative;z-index:2;max-width:900px;width:100%;
-padding:35px;border-radius:28px;text-align:center;
-background:rgba(255,255,255,.18);
-backdrop-filter:blur(24px);
-border:1px solid rgba(255,255,255,.35);
-box-shadow:0 20px 60px rgba(0,0,0,.18),0 0 40px rgba(255,153,51,.18),0 0 40px rgba(19,136,8,.15)}
-.flag{font-size:62px;display:inline-block;animation:wave 1.5s infinite}
-@keyframes wave{0%,100%{transform:rotate(0)}25%{transform:rotate(15deg)}50%{transform:rotate(-8deg)}75%{transform:rotate(15deg)}}
-h1{font-size:clamp(2.2rem,5vw,4rem);background:linear-gradient(90deg,#ff9933,#138808);-webkit-background-clip:text;color:transparent}
-.sub{margin:10px 0 20px;font-size:1.15rem}
-#typing{min-height:60px;font-weight:600;color:#333}
-.quote{margin:20px 0;padding:20px;border-radius:18px;background:rgba(255,255,255,.25);color:#222}
-.quote p{margin:10px 0}
-button{padding:18px 40px;border:none;border-radius:50px;font-size:1.15rem;font-weight:700;color:#fff;cursor:pointer;background:linear-gradient(90deg,#ff9933,#138808)}
+
+.flag{
+font-size:62px;
+display:inline-block;
+animation:wave 1.5s infinite;
+}
+
+@keyframes wave{
+0%,100%{transform:rotate(0)}
+25%{transform:rotate(15deg)}
+50%{transform:rotate(-8deg)}
+75%{transform:rotate(15deg)}
+}
+
+h1{
+font-size:clamp(2.2rem,5vw,4rem);
+background:linear-gradient(90deg,#ff9933,#138808);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.sub{
+margin:10px 0 20px;
+font-size:1.15rem;
+}
+
+#typing{
+min-height:60px;
+font-weight:600;
+color:#333;
+}
+
+.quote{
+margin:20px 0;
+padding:20px;
+border-radius:18px;
+background:rgba(255,255,255,.25);
+color:#222;
+}
+
+.quote p{
+margin:10px 0;
+}
+
+button{
+padding:18px 40px;
+border:none;
+border-radius:50px;
+font-size:1.15rem;
+font-weight:700;
+color:#fff;
+cursor:pointer;
+background:linear-gradient(90deg,#ff9933,#138808);
+}
+
 .sig{
 color:#222;
 font-weight:600;
@@ -56,29 +142,55 @@ margin-top:18px;
 
 footer{
 margin-top:25px;
-padding:15px 25px;
+padding:18px 30px;
 display:inline-block;
-background:rgba(255,255,255,.35);
-backdrop-filter:blur(12px);
-border-radius:16px;
+background:rgba(255,255,255,.4);
+backdrop-filter:blur(15px);
+border-radius:18px;
 border:1px solid rgba(255,255,255,.5);
-font-size:1.25rem;
-font-weight:800;
-line-height:1.8;
+box-shadow:0 8px 20px rgba(0,0,0,.12);
 }
 
 footer span{
 display:block;
+font-size:1.35rem;
+font-weight:800;
+line-height:1.8;
 background:linear-gradient(90deg,#ff9933,#138808);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
-.float,.conf{position:fixed;pointer-events:none}
-.float{bottom:-40px;animation:rise linear forwards}
-@keyframes rise{to{transform:translateY(-120vh);opacity:0}}
-.conf{top:-20px;animation:fall 3s linear forwards}
-@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
-</style></head>
+
+.float,.conf{
+position:fixed;
+pointer-events:none;
+}
+
+.float{
+bottom:-40px;
+animation:rise linear forwards;
+}
+
+@keyframes rise{
+to{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+.conf{
+top:-20px;
+animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(720deg);
+opacity:0;
+}
+}
+</style>
+</head>
 <body>
 <div class="card">
 <div class="flag">🇮🇳</div>
