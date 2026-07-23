@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Justice for Students</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{
+height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#1b1b1b;
+background:linear-gradient(135deg,#FF9933 0%,#FFF8F0 35%,#FFFFFF 50%,#F3FFF2 65%,#138808 100%);
+background-size:300% 300%;animation:bg 16s ease infinite;
+}
+@keyframes bg{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.45;animation:move 12s infinite alternate}
+.b1{width:320px;height:320px;background:#ff9933;top:-80px;left:-80px}
+.b2{width:300px;height:300px;background:#fff;right:-80px;top:120px}
+.b3{width:360px;height:360px;background:#138808;bottom:-120px;left:35%}
+@keyframes move{to{transform:translate(80px,-60px) scale(1.2)}}
+.card{position:relative;z-index:2;width:min(92%,820px);max-height:92vh;overflow:auto;padding:40px;text-align:center;border-radius:28px;background:rgba(255,255,255,.30);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.2);box-shadow:0 20px 60px rgba(255,153,51,.25)}
+.flag{font-size:82px;display:inline-block;animation:wave 2s infinite}
+@keyframes wave{0%,100%{transform:rotate(0)}25%{transform:rotate(10deg)}50%{transform:rotate(-8deg)}75%{transform:rotate(6deg)}}
+h1{font-size:clamp(2.4rem,6vw,4.3rem)}
+#typing{min-height:72px;margin:20px 0;line-height:1.8}
+button{padding:16px 36px;border:none;border-radius:50px;background:linear-gradient(90deg,#fd5949,#d6249f,#285AEB);color:#fff;font-weight:700;cursor:pointer}
+button:hover{transform:scale(1.05)}
+.heart,.flag-mini{position:fixed;bottom:-30px;pointer-events:none}
+.heart{font-size:22px;animation:rise linear forwards}
+.flag-mini{font-size:20px;animation:floatFlag linear forwards}
+@keyframes rise{to{transform:translateY(-120vh) rotate(360deg);opacity:0}}
+@keyframes floatFlag{0%{opacity:0}10%{opacity:1}100%{transform:translateY(-115vh) rotate(18deg);opacity:0}}
+.quotes{margin:25px auto 10px;max-width:650px;padding:18px;border-left:4px solid #FF9933;background:rgba(255,255,255,.12);border-radius:12px;font-style:italic;line-height:1.8}
+.quotes p{margin:10px 0}
+.signature{margin-top:35px;text-align:center;animation:fadeIn 2s ease}
+.signature .line{width:220px;height:3px;margin:0 auto 18px;border-radius:5px;background:linear-gradient(90deg,#FF9933,#FFFFFF,#138808)}
+.signature p{font-size:17px;color:#333;font-style:italic;margin-bottom:12px}
+.signature h3{font-size:30px;font-weight:700;color:#0b5d1e;letter-spacing:1px}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<audio id="music" loop><source src="music.mp3" type="audio/mpeg"></audio>
+<div class="card">
+<div class="flag">🇮🇳</div>
+<h1>Justice for Students</h1>
+<h3>📍 Jantar Mantar, New Delhi</h3>
+<div id="typing"></div>
+<div class="quotes">
+<p>“Education is a right. Justice is its foundation.”</p>
+<p>“Every student deserves fairness, opportunity, and respect.”</p>
+<p>“A nation's future is built by empowering its students.”</p>
+<p>“Let every deserving student be heard.”</p>
+</div>
+<br>
+<button id="btn">Support India 🇮🇳</button>
+<p style="margin-top:20px">#JusticeForStudents #StudentsMatter</p>
+
+<div class="signature">
+<div class="line"></div>
+<p>United for Justice • United for Education 🇮🇳</p>
+<h3>Regards,<br>Bharat</h3>
+</div>
+</div>
+
+<script>
+const msg="Every student deserves fairness, transparency, equal opportunity and justice. Raise your voice peacefully.";
+let i=0,t=document.getElementById("typing");
+(function type(){if(i<msg.length){t.textContent+=msg[i++];setTimeout(type,35)}})();
+setInterval(()=>{let h=document.createElement("div");h.className="heart";h.textContent=Math.random()>.3?"❤️":"🇮🇳";h.style.left=Math.random()*100+"vw";h.style.animationDuration=(4+Math.random()*4)+"s";document.body.appendChild(h);setTimeout(()=>h.remove(),8000)},250);
+setInterval(()=>{let f=document.createElement("div");f.className="flag-mini";f.textContent="🇮🇳";f.style.left=Math.random()*100+"vw";f.style.animationDuration=(6+Math.random()*4)+"s";document.body.appendChild(f);setTimeout(()=>f.remove(),10000)},900);
+btn.onclick=()=>{music.play().catch(()=>{});btn.textContent="Thank You 🇮🇳";}
+</script>
+</body>
+</html>
