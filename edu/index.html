@@ -8,12 +8,19 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-font-family:Poppins,sans-serif;
-min-height:100vh;display:flex;justify-content:center;align-items:center;
-overflow:hidden;padding:25px;position:relative;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fff5c3,#fff,#b8f2e6,#84fab0);
-background-size:400% 400%;
-animation:gradientMove 18s ease infinite;
+.card{
+position:relative;
+z-index:2;
+max-width:900px;
+width:100%;
+padding:40px;
+margin:30px 0;
+border-radius:28px;
+text-align:center;
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(24px);
+border:1px solid rgba(255,255,255,.35);
+box-shadow:0 20px 60px rgba(0,0,0,.18),0 0 40px rgba(255,153,51,.18),0 0 40px rgba(19,136,8,.15)
 }
 @keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 body:before{
@@ -41,7 +48,31 @@ h1{font-size:clamp(2.2rem,5vw,4rem);background:linear-gradient(90deg,#ff9933,#13
 .quote{margin:20px 0;padding:20px;border-radius:18px;background:rgba(255,255,255,.25);color:#222}
 .quote p{margin:10px 0}
 button{padding:18px 40px;border:none;border-radius:50px;font-size:1.15rem;font-weight:700;color:#fff;cursor:pointer;background:linear-gradient(90deg,#ff9933,#138808)}
-footer,.sig{color:#222;font-weight:600;margin-top:18px}
+.sig{
+color:#222;
+font-weight:600;
+margin-top:18px;
+}
+
+footer{
+margin-top:25px;
+padding:15px 25px;
+display:inline-block;
+background:rgba(255,255,255,.35);
+backdrop-filter:blur(12px);
+border-radius:16px;
+border:1px solid rgba(255,255,255,.5);
+font-size:1.25rem;
+font-weight:800;
+line-height:1.8;
+}
+
+footer span{
+display:block;
+background:linear-gradient(90deg,#ff9933,#138808);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 .float,.conf{position:fixed;pointer-events:none}
 .float{bottom:-40px;animation:rise linear forwards}
 @keyframes rise{to{transform:translateY(-120vh);opacity:0}}
@@ -62,11 +93,13 @@ footer,.sig{color:#222;font-weight:600;margin-top:18px}
 </div>
 <button id="btn">Support India 🇮🇳</button>
 <audio id="music" autoplay loop>
-<source src="ashok.mp3" type="audio/mpeg">
+<source src="music.mp3" type="audio/mpeg">
 </audio>
 <div class="sig"><div style="font-size:1.1rem;">United for Justice • United for Education 🇮🇳</div><br>Regards,<br><b>Bharat</b></div>
-<footer>#JusticeForStudents<br>#StudentsMatter</footer>
-</div>
+<footer>
+<span>#JusticeForStudents</span>
+<span>#StudentsMatter</span>
+</footer></div>
 <script>
 const t="Every student deserves fairness, transparency, equal opportunity, and justice. Raise your voice peacefully.";
 let i=0;function type(){if(i<=t.length){typing.textContent=t.slice(0,i++);setTimeout(type,40)}}type();
