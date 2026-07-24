@@ -49,4 +49,21 @@ let i=0;(function type(){if(i<=t.length){typing.textContent=t.slice(0,i++);setTi
 function fl(s){let e=document.createElement("div");e.className="float";e.textContent=s;e.style.left=Math.random()*100+"vw";e.style.fontSize=(16+Math.random()*18)+"px";e.style.animationDuration=(5+Math.random()*5)+"s";document.body.appendChild(e);setTimeout(()=>e.remove(),10000)}
 setInterval(()=>fl(Math.random()>.5?"❤️":"🇮🇳"),700);setInterval(()=>fl("✨"),500);
 document.getElementById("btn").onclick=()=>{document.getElementById("btn").textContent="Thank You 🇮🇳";for(let j=0;j<150;j++){let d=document.createElement("div");d.className="conf";d.textContent=["🟧","⬜","🟩","🎉"][Math.floor(Math.random()*4)];d.style.left=Math.random()*100+"vw";d.style.fontSize=(12+Math.random()*18)+"px";d.style.animationDuration=(2+Math.random()*2)+"s";document.body.appendChild(d);setTimeout(()=>d.remove(),4000)}};
-</script></body></html>
+</script>
+<!-- Background Music -->
+<audio id="bgMusic" autoplay loop controls style="position:fixed;bottom:20px;right:20px;z-index:9999;border-radius:12px">
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  const music=document.getElementById("bgMusic");
+  music.volume=0.4;
+  const play=()=>music.play().catch(()=>{});
+  play();
+  document.body.addEventListener("click",play,{once:true});
+});
+</script>
+
+</body></html>
